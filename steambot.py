@@ -5,10 +5,10 @@ from bs4 import BeautifulSoup
 
 
 def search():
-    # in steam profile, go to games than copy the link
+    # in steam profile, go to games and copy-paste the link
     url = "https://steamcommunity.com/id/pintipanda/games/?tab=all"
 
-    # add the exceptions (something from the game's store page)
+    # add the exceptions (some words from the game's store page to exclude those games)
     exceptions = [
         "Rocket League",
         "Assassin's Creed III",
@@ -35,9 +35,11 @@ def search():
         if "Free" in price_div:
             print("This is a free game")
             continue
+        
         # check for the exceptions
         if any(exception in str(soup) for exception in exceptions):
             continue
+        
         # get the game's current discounted value if exists
         if str(soup.find("div", {"class": "discount_final_price"})) in str(price_div):
             try:
@@ -57,6 +59,7 @@ def search():
                 print("There is a problem. (Invalid Game)")
                 counter += 1
                 continue
+        
         # get the game's current value if exists
         else:
             try:
