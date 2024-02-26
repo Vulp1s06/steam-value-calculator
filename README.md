@@ -6,4 +6,4 @@
 
 ### Warning:
   This script does not work today because steam changed their website. <br>
-  Now, you have to login to be able to see someone's owned games. <br>
+  Now, to see some's owned games, you have to login to an account. <br>
